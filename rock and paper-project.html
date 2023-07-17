@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock And Paper And Scissor</title>
+    <style>
+        body{
+            background-color:  rgb(25, 25, 25);;
+        }
+        img{
+            width:60px;
+            height: 60px;
+        }
+        .game-div{
+            display: flex;
+            flex-direction:row ;
+            height: 150px;
+            vertical-align: center;
+            column-gap: 10px;
+        }
+        .game-circle{
+            display:flex;
+            height: 130px;
+            width: 130px;
+            border-radius: 65px;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+
+            border: solid 3px white;
+        }
+        h1{
+            color: white;
+            margin-bottom: 40px;
+            font-size: 35px;
+
+            font-weight: 700;
+            font-family: Roboto,Arial,sans-serif;
+        }
+        .div-java{
+            margin-top: 20px;
+            margin-left: 20px;
+            color: white;
+            font-size: 27px;
+
+            display: inline-block;
+
+        }
+        .win-or-lose{
+            display: block;
+            height: 50px;
+            margin-top: 20px;
+            font-size: 28px;
+            color: white;
+
+        }
+    </style>
+</head>
+<body>
+<h1>
+    Rock Paper Scissors
+</h1>
+<div class="game-div">
+    <div class="game-circle" onclick="rock()">
+        <img src="rock-emoji.png" onclick="rock()">
+    </div>
+    <div class="game-circle" onclick="paper()">
+        <img src="paper-emoji.png" onclick="paper()">
+
+    </div>
+    <div class="game-circle" onclick="scissor()">
+        <img src="scissors-emoji.png" onclick="scissor()">
+    </div>
+</div>
+    <div id="win-or-lose" class="win-or-lose">
+
+
+    </div>
+    <div id="image-and-text" class="div-java">
+
+    </div>
+    <div id="image-and-text2" class="div-java">
+
+    </div>
+
+<script>
+    function rock(){
+        const root1 = 1/3;
+        const root2 = 2/3;
+        let win_or_lose = document.getElementById('win-or-lose');
+
+        let image = document.getElementById('image-and-text');
+        image.innerHTML ="You" + "<img src='rock-emoji.png'>"
+        let randomNumbers = Math.random();
+        if(randomNumbers>0 && randomNumbers<=root1 ){
+            win_or_lose.innerHTML = " It is A Tie";
+            const image1 = document.getElementById('image-and-text2');
+            image1.innerHTML = "Computer" + "<img src='rock-emoji.png'>"
+        }
+        if(randomNumbers>root1 && randomNumbers <= root2){
+            win_or_lose.innerHTML = " You Lose";
+            const image2 = document.getElementById('image-and-text2');
+            image2.innerHTML = "Computer" + "<img src='paper-emoji.png'>"
+
+        }
+        if(randomNumbers>root2 && randomNumbers<=1) {
+            win_or_lose.innerHTML = " You Win";
+            const image3= document.getElementById('image-and-text2');
+            image3.innerHTML = "Computer" + "<img src='scissors-emoji.png'>"
+        }
+    }
+    function paper(){
+        const root1 = 1/3;
+        const root2 = 2/3;
+        let win_or_lose = document.getElementById('win-or-lose');
+        let image = document.getElementById('image-and-text');
+        image.innerHTML ="You" + "<img src='paper-emoji.png'>"
+        let randomNumbers = Math.random();
+        if(randomNumbers>=1/3 && randomNumbers<=2/3 ){
+            win_or_lose.innerHTML = " It is A Tie";
+            const image1 = document.getElementById('image-and-text2');
+            image1.innerHTML = "Computer" + "<img src='paper-emoji.png'>"
+        }
+        if(randomNumbers>2/3 && randomNumbers <= 1){
+            win_or_lose.innerHTML = " You Lose";
+            const image2 = document.getElementById('image-and-text2');
+            image2.innerHTML = "Computer" + "<img src='scissors-emoji.png'>"
+
+        }
+        if(randomNumbers>0 && randomNumbers<=1/3) {
+            win_or_lose.innerHTML = " You Win";
+            const image3= document.getElementById('image-and-text2');
+            image3.innerHTML = "Computer" + "<img src='rock-emoji.png'>"
+        }
+    }
+    function scissor(){
+        const root1 = 1/3;
+        const root2 = 2/3;
+        let win_or_lose = document.getElementById('win-or-lose');
+        let image = document.getElementById('image-and-text');
+        image.innerHTML ="You" + "<img src='scissors-emoji.png'>"
+        let randomNumbers = Math.random();
+        if(randomNumbers>=2/3 && randomNumbers<=1 ){
+            win_or_lose.innerHTML = " It is A Tie";
+            const image1 = document.getElementById('image-and-text2');
+            image1.innerHTML = "Computer" + "<img src='scissors-emoji.png'>"
+        }
+        if(randomNumbers>0 && randomNumbers <= 1/3){
+            win_or_lose.innerHTML = " You Lose";
+            const image2 = document.getElementById('image-and-text2');
+            image2.innerHTML = "Computer" + "<img src='rock-emoji.png'>"
+
+        }
+        if(randomNumbers>1/3 && randomNumbers<=2/3) {
+            win_or_lose.innerHTML = " You Win";
+            const image3= document.getElementById('image-and-text2');
+            image3.innerHTML = "Computer" + "<img src='paper-emoji.png'>"
+        }
+    }
+
+
+
+</script>
+</body>
+</html>
